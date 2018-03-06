@@ -1,0 +1,20 @@
+<h2>記事ページ</h2>
+
+<% if @articles.present? %>
+  <table class="list">
+    <tr>
+      <th>タイトル</th>
+      <th>本文</th>
+      <th>閲覧制限</th>
+    </tr>
+    <% @articles.each do |article|%>
+      <tr>
+        <td><%= article.title %><td>
+        <td><%= article.body %><td>
+        <td><%= article.member_onle %><td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>記事情報がありません。</p>
+<% end %>

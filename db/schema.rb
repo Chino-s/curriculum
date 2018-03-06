@@ -11,15 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306070336) do
+ActiveRecord::Schema.define(version: 20180306071447) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title",       limit: 255,                   null: false
+    t.text     "body",        limit: 65535,                 null: false
+    t.boolean  "member_only", limit: 1,     default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
     t.string   "email",      limit: 255,             null: false
     t.integer  "gender",     limit: 4,   default: 0, null: false
     t.date     "birth_day"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
